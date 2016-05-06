@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+int find_word(string palabra, string archivo){
+  string line;
+  int cont=0;
+  ifstream myfile(archivo);
+  if (myfile.is_open()){
+
+    while ( getline (myfile,line) ){
+      if(line == word){
+        cont++;
+      }   //      cout << line << endl;
+    }
+    myfile.close();
+  }
+  else {
+  cout<<"No se encontró o no se pudo abrir el archivo"<<endl;
+  }
+  cout<<"la palabra se encuentra estas veces: "<<cont<<endl;
+  return cont;
+}
+
+int main(){
+  string palabra, archivo, line;
+  int count;
+  cout<<"Ingrese la palabra que busca"<<endl;
+  cin>>palabra;
+  cout<<"Dime el nombre del texto junto con su tipo de archivo pegado: "<<endl;
+  cin>>archivo;
+  find_word(palabra, archivo);
+return 0;
+}
